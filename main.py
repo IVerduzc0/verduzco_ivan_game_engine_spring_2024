@@ -1,6 +1,12 @@
 #This file was created by: Ivan Verduzco
+'''
+Gsmr designs truths:
+goals, rules, feedback, what the verb, and will it form a sentence
 
-# import libraries and modules
+health bar, kill enemies, morving enemies
+
+'''
+# import libraries and 
 import pygame as pg
 from settings import *
 from sprites import *
@@ -9,6 +15,7 @@ import sys
 from os import path
 
 # 2 underscores _ before and after init
+
 
 # define game class
 class Game:
@@ -41,7 +48,7 @@ class Game:
         self.all_sprites = pg.sprite.Group()
         self.walls = pg.sprite.Group()
         self.Coins = pg.sprite.Group()
-        self.Bushes = pg.sprite.Group()
+        self.mobs = pg.sprite.Group()
         self.power_ups = pg.sprite.Group()
         # self.player1 = Player(self, 1, 1)
         # for x in range(10, 20):
@@ -58,7 +65,7 @@ class Game:
                 if tile == 'C':
                     Coin(self, col, row)
                 if tile == 'B':
-                    Bush(self, col, row)
+                    Mob(self, col, row)
                 if tile == 'U':
                     PowerUp(self, col, row)
 
