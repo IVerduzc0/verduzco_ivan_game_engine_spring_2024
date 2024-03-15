@@ -15,8 +15,10 @@ import sys
 from os import path
 
 # 2 underscores _ before and after init
-
-def draw_shield_bar(surf, x, y, pct):
+#added health bar by adding draw to display the bar 
+#Defined the length and height of the bar
+#fill the bar and 
+def draw_health_bar(surf, x, y, pct):
     if pct < 0:
         pct = 0
     BAR_LENGTH = 100
@@ -30,7 +32,7 @@ def draw_shield_bar(surf, x, y, pct):
 
 # Define game class...
 class Game:
-    # Define a special method to init the properties of said class...
+    # Define a special method to init the properties of said class
     def __init__(self):
         # init pygame
         pg.init()
@@ -103,10 +105,10 @@ class Game:
         surface.blit(text_surface, text_rect)
     def draw(self):
             self.screen.fill(BGCOLOR)
-            self.draw_grid()
+            # self.draw_grid()
             self.all_sprites.draw(self.screen)
-            self.draw_text(self.screen, str(self.player.moneybag), 64, WHITE, 1, 1)
-
+            # self.player.draw_health_bar(self.screen, self.player.rect.x, self.player.rect.y, self.player.hitpoints)
+            draw_health_bar(self.screen, 5, 5, 100)
             pg.display.flip()
 
     def events(self):
