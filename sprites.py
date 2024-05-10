@@ -77,7 +77,9 @@ class Player(pg.sprite.Sprite):
                 self.cooling = True
                 print(self.cooling)
                 self.speed += 500
-
+                if str(hits[0].__class__.__name__) == "Mob":
+                 hits[0].hitpoints -= 1
+     
     def update(self):
         self.get_keys()
         self.x += self.vx * self.game.dt
