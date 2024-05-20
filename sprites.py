@@ -68,7 +68,7 @@ class Player(pg.sprite.Sprite):
             for hit in hits:
                 if isinstance(hit, Coin):
                     self.moneybag += 1
-                    if self.moneybag >= 8:
+                    if self.moneybag >= 9:
                         self.game.playing = False
                 if isinstance(hit, PowerUp):
                     print("Collected PowerUp")

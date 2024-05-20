@@ -122,7 +122,7 @@ class Game:
 
     def show_end_screen(self):
         self.screen.fill(BGCOLOR)
-        self.draw_text(self.screen, "Good Job! You finished the simple game", 48, WHITE, WIDTH / 2, HEIGHT / 2)
+        self.draw_text(self.screen, "Good Job! You finsihed", 48, WHITE, WIDTH / 2, HEIGHT / 2)
         pg.display.flip()
         pg.time.wait(2000)
 
