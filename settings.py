@@ -24,4 +24,4 @@ LIGHTGREY = (75,75,75)
 
 PowerUp = PLAYER_SPEED = 500
 # Player settings
-PLAYER_SPEED = 300
+PLAYER_SPEED = 200
