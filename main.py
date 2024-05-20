@@ -79,6 +79,14 @@ class Game:
 
     def update(self):
         self.all_sprites.update()
+        hits = pg.sprite.spritecollide(self.player, self.mobs, False)
+        for hit in hits:
+            self.player.health -= 34
+            if self.player.health <= 0:
+                self.playing = False
+        if self.player.moneybag >= 8:
+            self.show_end_screen()
+            self.playing = False
 
     def draw_grid(self):
         for x in range(0, WIDTH, TILESIZE):
@@ -111,6 +119,12 @@ class Game:
         self.draw_text(self.screen, "This is the start screen - press any key to play", 24, WHITE, WIDTH / 2, HEIGHT / 2)
         pg.display.flip()
         self.wait_for_key()
+
+    def show_end_screen(self):
+        self.screen.fill(BGCOLOR)
+        self.draw_text(self.screen, "Good Job! You finished the simple game", 48, WHITE, WIDTH / 2, HEIGHT / 2)
+        pg.display.flip()
+        pg.time.wait(2000)
 
     def wait_for_key(self):
         waiting = True

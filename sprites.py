@@ -25,6 +25,7 @@ class Player(pg.sprite.Sprite):
         self.speed = PLAYER_SPEED
         self.cooling = False
         self.cooldown_timer = 0
+        self.health = 100
 
     def get_keys(self):
         self.vx, self.vy = 0, 0
@@ -67,9 +68,11 @@ class Player(pg.sprite.Sprite):
             for hit in hits:
                 if isinstance(hit, Coin):
                     self.moneybag += 1
+                    if self.moneybag >= 8:
+                        self.game.playing = False
                 if isinstance(hit, PowerUp):
                     print("Collected PowerUp")
-                    self.speed += 400  # Increase speed
+                    self.speed += 350  # Increase speed
                     self.cooldown_timer = pg.time.get_ticks() + 5000  # 5 seconds cooldown
                     self.cooling = True
 
